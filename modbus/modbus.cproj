@@ -755,6 +755,12 @@
     <Compile Include="rtos_start.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="task\modbus.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="task\modbus.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="thirdparty\RTOS\freertos\FreeRTOSV10.0.0\rtos_port.c">
       <SubType>compile</SubType>
     </Compile>
@@ -863,6 +869,7 @@
     <Folder Include="hpl\usart\" />
     <Folder Include="hpl\xdmac\" />
     <Folder Include="hri\" />
+    <Folder Include="task" />
     <Folder Include="thirdparty\" />
     <Folder Include="thirdparty\RTOS\" />
     <Folder Include="thirdparty\RTOS\freertos\" />
