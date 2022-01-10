@@ -7,4 +7,8 @@ Renomear PB3 para RTS_RS485 no Atmel Start.
 Implementa as funcoes do modbus:
 03 (0x03) Read Holding Registers.
 04 (0x04) Read Input Registers.
+<<<<<<< HEAD
 16 (0x10) Write Multiple registers.
+=======
+16 (0x10) Write Multiple registers.
+>>>>>>> c642c47eee8267a2d0113e051312e74197070445
