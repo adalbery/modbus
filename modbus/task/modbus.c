@@ -4,8 +4,9 @@
  * Created: 17/12/2021 15:03:33
  *  Author: Adalbery
  * Projeto SIMA.
- * Programa para implementar protocolo Modbus utilizando microcontrolador ATSAMV71Q21B - CORTEX M7
- * Testes realizado com o kit SAM V71 Xplained Ultra.
+ * Programa para implementar protocolo Modbus
+ * utilizando microcontrolador ATSAMV71Q21B - CORTEX M7
+ * Testes realizado com o kit SAM V71 Xplained Ultra, Microchip Studio e FreeRtos.
  * Modbus utiliza USART0: RXD = PB0 - TXD = PB1 - RTS = PB3.
  * Renomear PB3 para RTS_RS485 no Atmel Start.
  * Implementa as funcoes do modbus:

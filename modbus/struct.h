@@ -41,7 +41,7 @@ struct StrHoldReg
 //sempre vefificar a posicao dos registradores
 struct StrInputReg
 {	float	 Versao;          //000,001 - Versao do Firmware
-    float	 reservado;       //002,003 - Reservado para uso futuro ou pelo manufaturador
+    float	 reservado1;      //002,003 - Reservado para uso futuro ou pelo manufaturador
     uint64_t tStampRms;       //004,007 - timestamp das medidas rms. formato Unix
 	uint64_t tStampEve;       //008,011 - timestamp do evento. formato Unix
 	float    uRms        [3]; //012,017 - tensao RMS nas fases
@@ -73,11 +73,12 @@ struct StrInputReg
     float    EnergiaApar [4]; //838,845 - Energia aparente nas fases [0..2] e total [3]
 	float    uRmsInst    [3]; //846,851 - tensao RMS nas fases - instantanea
 	float	 iRmsInst    [4]; //852,859 - corrente RMS nas fases [0..2] e no neutro [3] - instantanea
-	float	 FreqInst    [3]; //860,867 - Frequencia fundamental nas fases - instantanea
-	float    DemAtivaInst[4]; //868,875 - Demanda ativa das fases [0..2] e total [3] - instantanea
-	float    DemReatiInst[4]; //876,883 - Demanda reativa das fases [0..2] e total [3] - instantanea
-	float    DemApareInst[4]; //884,891 - Demanda aparente das fases [0..2] e total [3] - instantanea
-	float    FatPotenInst[4]; //892,899 - Fator de potencia nas fases [0..2] e no neutro [3] - instantanea
+	float	 FreqInst    [3]; //860,865 - Frequencia fundamental nas fases - instantanea
+	float    DemAtivaInst[4]; //866,873 - Demanda ativa das fases [0..2] e total [3] - instantanea
+	float    DemReatiInst[4]; //874,881 - Demanda reativa das fases [0..2] e total [3] - instantanea
+	float    DemApareInst[4]; //882,889 - Demanda aparente das fases [0..2] e total [3] - instantanea
+	float    FatPotenInst[4]; //890,897 - Fator de potencia nas fases [0..2] e no neutro [3] - instantanea
+	float	 reservado2;      //898,899 - Reservado para uso futuro ou pelo manufaturador
 };
 
 
