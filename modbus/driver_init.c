@@ -23,6 +23,8 @@ struct usart_async_descriptor USART_0;
 
 static uint8_t USART_0_buffer[USART_0_BUFFER_SIZE];
 
+struct usart_sync_descriptor debug_UART0;
+
 void TIMER_0_PORT_init(void)
 {
 }
@@ -36,6 +38,22 @@ static void TIMER_0_init(void)
 	_pmc_enable_periph_clock(ID_TC0_CHANNEL0);
 	TIMER_0_PORT_init();
 	timer_init(&TIMER_0, TC0, _tc_get_timer());
+}
+
+void debug_UART0_PORT_init(void)
+{
+}
+
+void debug_UART0_CLOCK_init(void)
+{
+	_pmc_enable_periph_clock(ID_UART0);
+}
+
+void debug_UART0_init(void)
+{
+	debug_UART0_CLOCK_init();
+	usart_sync_init(&debug_UART0, UART0, _uart_get_usart_sync());
+	debug_UART0_PORT_init();
 }
 
 /**
@@ -83,5 +101,7 @@ void system_init(void)
 	hri_wdt_set_MR_WDDIS_bit(WDT);
 
 	TIMER_0_init();
+
+	debug_UART0_init();
 	USART_0_init();
 }

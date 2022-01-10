@@ -78,7 +78,7 @@ drivers:
       _$freq_output_32kHz External Crystal Oscillator (XOSC32K): 0
       _$freq_output_32kHz High Accuracy Internal Oscillator (OSC32K): 32000
       _$freq_output_Embedded 4/8/12MHz RC Oscillator (OSC12M): '12000000'
-      _$freq_output_External 3-20MHz Oscillator (XOSC20M): '12000000'
+      _$freq_output_External 3-20MHz Oscillator (XOSC20M): 12000000
       _$freq_output_External Clock: 1
       _$freq_output_Generic Clock 0 (GCLK0) for I2SC0: 75000000
       _$freq_output_Generic Clock 1 (GCLK1) for I2SC1: 100000000
@@ -236,6 +236,29 @@ drivers:
           external_frequency: 0
         configuration:
           tc_clock_source: Master Clock (MCK)
+  debug_UART0:
+    user_label: debug_UART0
+    definition: Atmel:SAMV71B_Drivers:0.0.1::ATSAMV71Q21B-AAB::UART0::driver_config_definition::UART::HAL:Driver:USART.Sync
+    functionality: USART
+    api: HAL:Driver:USART_Sync
+    configuration:
+      uart_advanced: false
+      uart_baud_rate: 9600
+      uart_channel_mode: Normal Mode
+      uart_parity: No parity
+      uart_receive_filter_enable: false
+      uart_usclks: Peripheral clock is selected
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: UART
+          input: Master Clock (MCK)
+          external: false
+          external_frequency: 0
+        configuration:
+          uart_clock_source: Master Clock (MCK)
   USART_0:
     user_label: USART_0
     definition: Atmel:SAMV71B_Drivers:0.0.1::ATSAMV71Q21B-AAB::USART0::driver_config_definition::UART::HAL:Driver:USART.Async

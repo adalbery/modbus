@@ -38,6 +38,18 @@ void TIMER_0_example(void)
 }
 
 /**
+ * Example of using debug_UART0 to write "Hello World" using the IO abstraction.
+ */
+void debug_UART0_example(void)
+{
+	struct io_descriptor *io;
+	usart_sync_get_io_descriptor(&debug_UART0, &io);
+	usart_sync_enable(&debug_UART0);
+
+	io_write(io, (uint8_t *)"Hello World!", 12);
+}
+
+/**
  * Example of using USART_0 to write "Hello World" using the IO abstraction.
  *
  * Since the driver is asynchronous we need to use statically allocated memory for string

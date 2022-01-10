@@ -22,10 +22,20 @@ extern "C" {
 #include <hal_sleep.h>
 
 #include <hal_timer.h>
+
+#include <hal_usart_sync.h>
+#include <hpl_uart_base.h>
 #include <hal_usart_async.h>
 
-extern struct timer_descriptor       TIMER_0;
+extern struct timer_descriptor TIMER_0;
+
+extern struct usart_sync_descriptor  debug_UART0;
 extern struct usart_async_descriptor USART_0;
+
+void debug_UART0_PORT_init(void);
+void debug_UART0_CLOCK_init(void);
+void debug_UART0_init(void);
+void debug_UART0_example(void);
 
 void USART_0_PORT_init(void);
 void USART_0_CLOCK_init(void);

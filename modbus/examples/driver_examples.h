@@ -18,6 +18,8 @@ extern "C" {
 
 void TIMER_0_example(void);
 
+void debug_UART0_example(void);
+
 void USART_0_example(void);
 
 #ifdef __cplusplus
