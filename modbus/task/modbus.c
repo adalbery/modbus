@@ -13,6 +13,7 @@
  * 03 (0x03) Read Holding Registers.
  * 04 (0x04) Read Input Registers.
  * 16 (0x10) Write Multiple registers.
+ 
  */ 
 
 #include <atmel_start.h>
@@ -136,7 +137,7 @@ void modbus_init(volatile union UniHoldReg *hold, volatile union UniInputReg *in
     
     //Configura timer0
     //tempos baseados em MODBUS over Serial Line Specification and Implementation Guide V1.02
-    //Foi acrescido o tempo de  char devido nao ter como saber o momento do início do recebimento
+    //Foi acrescido o tempo de  char devido nao ter como saber o momento do inï¿½cio do recebimento
     //de um novo byte, apenas quando he recebido que existe o tratamento
     if (CONF_USART_0_BAUD <= 19200)
     {   interval_t15 = ((1.5 + 1)*8*10000)/CONF_USART_0_BAUD + 1; //considera o 100us o tempo do tick do timer0
@@ -172,13 +173,13 @@ uint16_t crc16(uint8_t msg[], uint8_t len)
 		for (uint8_t i = 8; i != 0; i--)// Itera sobre cada bit
 		{	if ((crc & 0b1) != 0)		// Se o LSB for 1:
 			{	crc >>= 1;              // Desloca para a direita
-				crc ^= 0xA001;          // E faz XOR com o polinômio 0xA001 (1010 0000 0000 0001 ): x16 + x15 + x2 + 1
-			}else						// Senão:
+				crc ^= 0xA001;          // E faz XOR com o polinï¿½mio 0xA001 (1010 0000 0000 0001 ): x16 + x15 + x2 + 1
+			}else						// Senï¿½o:
 			{	crc >>= 1;              // Desloca para a direita
 			}
 		}
 	}	
-	return crc;// O formato retornado já sai invertido (LSByte primeiro que o MSByte)
+	return crc;// O formato retornado jï¿½ sai invertido (LSByte primeiro que o MSByte)
 }
 
 
@@ -210,7 +211,7 @@ void modbus_exception(uint8_t exception)
 //Read Holding Registers - monta PDU para responder funcao 03 (0x03)
 //03 (0x03) Read Holding Registers
 void modbus_ReadHoldReg(void)
-{	uint16_t conta;//variável generica para contagem
+{	uint16_t conta;//variï¿½vel generica para contagem
     uint16_t QtdReg;//armazena a quantidade de registros solicitados
     uint16_t EndIni;//armazena o endereco inicial dos registradores
     QtdReg = (frame_in[4]<<8) + frame_in[5];//quantidade de registros solicitados
@@ -241,7 +242,7 @@ void modbus_ReadHoldReg(void)
 //Read Input Registers - monta PDU para responder funcao 04 (0x04) 
 //04 (0x04) Read Input Registers
 void modbus_ReadInputReg(void)
-{	uint16_t conta;//variável generica para contagem
+{	uint16_t conta;//variï¿½vel generica para contagem
 	uint16_t QtdReg;//armazena a quantidade de registros solicitados
 	uint16_t EndIni;//armazena o endereco inicial dos registradores
 	QtdReg = (frame_in[4]<<8) + frame_in[5];//quantidade de registros solicitados
@@ -273,7 +274,7 @@ void modbus_ReadInputReg(void)
 //16 (0x10) Write Multiple registers
 //escreve nos registradores Hold os dados recebidos
 void modbus_WriteMultReg(void)
-{	uint16_t conta;//variável generica para contagem
+{	uint16_t conta;//variï¿½vel generica para contagem
 	uint16_t QtdReg;//armazena a quantidade de registros solicitados
 	uint16_t EndIni;//armazena o endereco inicial dos registradores
 	uint16_t ByteCount;//armazena a quantidade de byte de dados recebidos
